@@ -41,6 +41,16 @@ switch (userCommand) {
 
 // bands in town API
 function concertThis () {
+  // if searchTerm not defined..
+  if (searchTerm === "") {
+    console.log(`
+    
+    SEARCH TERM NOT DEFINED!
+    LIRI WILL SEARCH FOR "Drake"
+    `);
+    searchTerm = "Drake";
+  }
+
   axios.get("https://rest.bandsintown.com/artists/" + searchTerm + "/events?app_id=codingbootcamp")
     .then(function (response){
 
@@ -48,21 +58,54 @@ function concertThis () {
 
       // if exists....
       if (response.data.length === 0) {
-        console.log (`No Upcoming Event of ${searchTerm}`)
+        console.log (`
+        
+        No Upcoming Event of ${searchTerm}
+        
+        `)
       } else {
         
         //name is undefined???
-        console.log(response.data[0]);
+        // console.log(response.data[0]);
 
         let venueName = response.data[0]["venue"]["name"];
         let venueCity = response.data[0]["venue"]["city"];
         let venueCountry = response.data[0]['venue']['country'];
         let concertDate = moment(response.data[0]['datetime']).format("MMMM Do YYYY");
         
-        console.log(`Artist: ${searchTerm}`)
-        console.log(`Venue: ${venueName}`);
-        console.log(`Location: ${venueCity}, ${venueCountry}`);
-        console.log(`Date: ${concertDate}`)
+        // print to console
+        console.log(`
+
+        Artist: ${searchTerm}
+        Venue: ${venueName}
+        Location: ${venueCity}, ${venueCountry}
+        Date: ${concertDate}
+
+        `);
+
+        // create obj based on information -> will be used to log
+        const concert = {
+          venueName: response.data[0]["venue"]["name"],
+          venueCity: response.data[0]["venue"]["city"],
+        };
+
+        fs.appendFile("log.txt", `\n${JSON.stringify(concert)}`, function(err) {
+
+          // If an error was experienced we will log it.
+          if (err) {
+            console.log(err);
+          }
+        
+          // If no error is experienced, we'll log the phrase "Content Added" to our node console.
+          else {
+            console.log("Content Added to log.txt");
+          }
+        
+        });
+        
+
+
+        
       }
     })
 };
@@ -94,6 +137,15 @@ function spotifyThis () {
 
 // OMDB API
 function movieThis() {
+  if (searchTerm === "") {
+    console.log(`
+    
+    SEARCH TERM NOT DEFINED!
+    LIRI WILL SEARCH FOR "MR. NOBODY"
+    `);
+    searchTerm = "Mr. Nobody";
+  }
+
   axios.get(`http://www.omdbapi.com/?t=${searchTerm}&apikey=e7bc8efb`)
     .then(function (response){
       
@@ -106,27 +158,43 @@ function movieThis() {
       let movieRatingMetacritic = response.data["Ratings"][2]["Value"];
       let movieCountry = response.data["Country"];
       let movieLanguage = response.data["Language"];
-      let moviePlot = response.data["Plot"]
-      let movieActors = response.data["Actors"]
+      let moviePlot = response.data["Plot"];
+      let movieActors = response.data["Actors"];
 
-      // way to search by property name in object???
 
-      // console.log(response.data["Ratings"][0]["Value"]);
-      // for (let i = 0; i < response.data["Ratings"].length; i ++) {
-      //   if (response.data["Ratings"][i]["Source"]==='Internet Movie Database') {
-      //     console.log(this["Value"]);
-      //     movieRatingIMDB = this["Value"];
-      //   }
-      // }
+      console.log(`
 
-      console.log("Title: " + movieTitle);
-      console.log("Released: " + movieYear);
-      console.log("IMDB Rating: " + movieRatingIMDB);
-      console.log("Rotten Tomato Rating: " + movieRatingRottenTomato);
-      console.log("Metacritic Rating: " + movieRatingMetacritic);
-      console.log("Country: " + movieCountry);
-      console.log("Language: " + movieLanguage);
-      console.log("Plot: " + moviePlot);
-      console.log("Actors: " + movieActors);
+      Title: ${movieTitle}
+      Released: ${movieYear}
+      IMDB Rating: ${movieRatingIMDB}
+      Rotten Tomato Rating: ${movieRatingRottenTomato}
+      Metacritic Rating: ${movieRatingMetacritic}
+      Country: ${movieCountry}
+      Language: ${movieLanguage}
+      Plot: ${moviePlot}
+      Actors: ${movieActors}
+      
+      `);
   })
+};
+
+
+// do-what-it-says
+function doWhatItSays () {
+  fs.readFile("random.txt", "utf8", function(error, response) {
+
+    if (error) {
+      return console.log(error);
+    }
+  
+    // Then split it by commas (to make it more readable)
+    var dataArr = response.split(",");
+
+    //reassign searchTerm
+    searchTerm = dataArr[1]
+    
+    //run spotify-this-song
+    spotifyThis();
+  
+  });
 }
