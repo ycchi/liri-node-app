@@ -33,6 +33,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 ---
 
 * spotify-this-song
+
 ![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/spotify-this-song.gif)
 ---
 
@@ -51,3 +52,18 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 * do-what-it-says
 ![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/do-what-it-says.gif)
 ---
+
+
+## Technologies Used
+
+* node JS
+* Spotify API
+* Bands In Town API
+* OMDB API
+* Axios 
+
+
+## Contributor
+
+Young Chi
+young.c.chi@gmail.com
