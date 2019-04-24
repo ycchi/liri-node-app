@@ -14,12 +14,12 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
 ## Commands
 
-* node liri.js concert-this <artist>
+* node liri.js concert-this "artist"
     * LIRI responds with upcoming concert of your search.
-* node liri.js spotify-this-song <song-title>
+* node liri.js spotify-this-song "song-title"
     * LIRI responds with song information (Title, Artist, Album, Preview URL)
     * if search term is not inputted, LIRI, by default, will search for 'The Sign' by Ace of Base
-* node liri.js movie-this <movie-title>
+* node liri.js movie-this "movie-title"
     * LIRI responds with movie data 
     * if search term is not inputted, LIRI, by default, will search for 'Mr. Nobody'.
 * node liri.js do-what-it-says 
