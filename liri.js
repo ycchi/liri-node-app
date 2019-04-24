@@ -112,25 +112,61 @@ function concertThis () {
 
 // spotify
 function spotifyThis () {
-  spotify.search({ type: 'track', query: searchTerm }, function(err, response) {
-    if (err) {
-      return console.log('Error occurred: ' + err);
-    }
-    
-    let previewURL = response.tracks.items[0]["preview_url"]; 
-    let artist = response.tracks.items[0]["artists"][0]["name"];
-    let title = response.tracks.items[0]["name"];
-    let album = response.tracks.items[0]["album"]["name"]
-  
+  // if searchTerm not defined..
+  if (searchTerm === "") {
     console.log(`
-
-    Artist: ${artist}
-    Title: ${title}
-    Album: ${album}
-    Preview: ${previewURL}
-
+    
+    SEARCH TERM NOT DEFINED!
+    LIRI WILL SEARCH FOR "The Sign"
     `);
-  });
+
+  // search and print song info of 'The Sign' by Ace of Base
+  spotify
+    .request('https://api.spotify.com/v1/tracks/0hrBpAOgrt8RXigk83LLNE')
+    .then(function(response) {
+
+      let artist = response["artists"][0]["name"]
+      let previewURL = response["preview_url"];
+      let title = response["name"];
+      let album = response["album"]["name"];
+
+      console.log(`
+  
+      Artist: ${artist}
+      Title: ${title}
+      Album: ${album}
+      Preview: ${previewURL}
+  
+      `);
+    })
+    .catch(function(err) {
+      console.error('Error occurred: ' + err); 
+    });
+  } else {
+    spotify.search({ type: 'track', query: searchTerm }, function(err, response) {
+      if (err) {
+        return console.log('Error occurred: ' + err);
+      }
+      
+  
+      let previewURL = response.tracks.items[0]["preview_url"]; 
+      let artist = response.tracks.items[0]["artists"][0]["name"];
+      let title = response.tracks.items[0]["name"];
+      let album = response.tracks.items[0]["album"]["name"]
+    
+      console.log(`
+  
+      Artist: ${artist}
+      Title: ${title}
+      Album: ${album}
+      Preview: ${previewURL}
+  
+      `);
+    });
+  }
+
+
+  
 };
 
 

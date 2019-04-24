@@ -1,2 +1,6 @@
 
 {"venueName":"Ziggo Dome","venueCity":"Amsterdam"}
+{"venueName":"Rogers Place","venueCity":"Edmonton"}
+{"venueName":"Ziggo Dome","venueCity":"Amsterdam"}
+{"venueName":"Stereo Garden","venueCity":"Patchogue"}
+{"venueName":"Ziggo Dome","venueCity":"Amsterdam"}
