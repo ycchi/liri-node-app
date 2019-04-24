@@ -29,27 +29,42 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 ## Screenshot
 
 * concert-this ariana grande
+
+
+![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/screenshot/concert-this.png)
 ![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/concert-this-1.gif)
 ---
 
 * spotify-this-song
 
+![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/screenshot/spotify-this-song.png)
 ![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/spotify-this-song.gif)
 ---
 
 * spotify-this-song No Title
+
+![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/screenshot/spotify-this-song-noTitle.png)
 ![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/spotify-this-song-no%20song.gif)
 ---
 
 * movie-this
+
+
+![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/screenshot/movie-this.png)
 ![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/movie-this.gif)
 ---
 
 * movie-this No Title
+
+
+![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/screenshot/movie-this-noTitle.png)
 ![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/movie-this-noTitle.gif)
 ---
 
 * do-what-it-says
+
+
+![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/screenshot/do-what-it-says.png)
 ![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/do-what-it-says.gif)
 ---
 
