@@ -29,7 +29,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 ## Screenshot
 
 * concert-this ariana grande
-![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/concert-this.gif)
+![](https://github.com/ycchi/liri-node-app/blob/master/assets/img/concert-this-1.gif)
 ---
 
 * spotify-this-song
