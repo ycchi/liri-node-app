@@ -5,3 +5,4 @@
 {"venueName":"Stereo Garden","venueCity":"Patchogue"}
 {"venueName":"Ziggo Dome","venueCity":"Amsterdam"}
 {"venueName":"Rogers Place","venueCity":"Edmonton"}
+{"venueName":"Rogers Place","venueCity":"Edmonton"}
